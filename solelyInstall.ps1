@@ -4,8 +4,11 @@ Write-Host "Checking for permissions..." -ForegroundColor black -BackgroundColor
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 Write-Host "Installing & updating Scoop..." -ForegroundColor black -BackgroundColor Yellow
-irm get.scoop.sh | iex
-scoop update
+try {
+    irm get.scoop.sh | iex
+} catch {
+    $global:LASTEXITCODE = 0
+}
 Write-Host "Scoop installed." -ForegroundColor black -BackgroundColor Yellow
 
 Write-Host "Installing Git & dependencies..." -ForegroundColor black -BackgroundColor Yellow
@@ -45,11 +48,11 @@ scoop install bitwarden keybase
 Write-Host "--- Security suite installed. --- (7/9)" -ForegroundColor white -BackgroundColor darkgreen
 
 Write-Host "--- Installing Windows essentials... --- (8/9)" -ForegroundColor white -BackgroundColor darkcyan
-scoop import everything everythingtoolbar powertoys startallback
+scoop install everything everythingtoolbar powertoys startallback
 Write-Host "--- Windows Essentials installed. --- (8/9)" -ForegroundColor white -BackgroundColor darkgreen
 
 Write-Host "--- Installing miscellaneous apps... --- (9/9)" -ForegroundColor white -BackgroundColor darkcyan
-scoop import anydesk crystaldiskmark notepadplusplus obs-studio rufus sharex vim wget windirstat yt-dlp
+scoop install anydesk crystaldiskmark notepadplusplus obs-studio rufus sharex vim wget windirstat yt-dlp
 Write-Host "--- Miscellaneous apps installed. --- (9/9)" -ForegroundColor white -BackgroundColor darkgreen
 
 Write-Host "Installation complete. Exiting."
