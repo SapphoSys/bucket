@@ -1,6 +1,6 @@
 param(
     # overwrite upstream param
-    [String]$upstream = "solelychloe/solely-bucket:main"
+    [String]$upstream = "solelychloe/bucket:main"
 )
 
 if (!$env:SCOOP_HOME) { $env:SCOOP_HOME = Resolve-Path (scoop prefix scoop) }

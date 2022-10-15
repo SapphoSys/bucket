@@ -21,7 +21,7 @@ scoop install git
 Write-Host "Git & its dependencies installed." -ForegroundColor black -BackgroundColor Yellow
 
 Write-Host "Adding @solelychloe's bucket..." -ForegroundColor black -BackgroundColor Yellow
-scoop bucket add solely-bucket https://github.com/solelychloe/solely-bucket
+scoop bucket add solely-bucket https://github.com/solelychloe/bucket
 Write-Host "@solelychloe's bucket added." -ForegroundColor black -BackgroundColor Yellow
 
 Write-Host "--- Installing chat apps... --- (1/9)" -ForegroundColor white -BackgroundColor darkcyan
