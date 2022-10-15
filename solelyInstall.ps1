@@ -3,21 +3,26 @@ Write-Host "Script by Chloe Arciniega (@solelychloe)" -ForegroundColor white -Ba
 Write-Host "Checking for permissions..." -ForegroundColor black -BackgroundColor red
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-Write-Host "Installing & updating Scoop..." -ForegroundColor black -BackgroundColor Yellow
 try {
-    irm get.scoop.sh | iex
+    scoop --version *>$null
+    Write-Host "Scoop is already installed on your system." -ForegroundColor black -BackgroundColor Yellow
 } catch {
-    $global:LASTEXITCODE = 0
+    Write-Host "Installing Scoop..." -ForegroundColor black -BackgroundColor Yellow
+    irm get.scoop.sh | iex
+    Write-Host "Scoop installed." -ForegroundColor black -BackgroundColor Yellow
 }
-Write-Host "Scoop installed." -ForegroundColor black -BackgroundColor Yellow
+
+Write-Host "Updating Scoop..." -ForegroundColor black -BackgroundColor Yellow
+scoop update
+Write-Host "Scoop updated." -ForegroundColor black -BackgroundColor Yellow
 
 Write-Host "Installing Git & dependencies..." -ForegroundColor black -BackgroundColor Yellow
 scoop install git
-Write-Host "Git & dependencies installed." -ForegroundColor black -BackgroundColor Yellow
+Write-Host "Git & its dependencies installed." -ForegroundColor black -BackgroundColor Yellow
 
-Write-Host "Adding bucket..." -ForegroundColor black -BackgroundColor Yellow
+Write-Host "Adding @solelychloe's bucket..." -ForegroundColor black -BackgroundColor Yellow
 scoop bucket add solely-bucket https://github.com/solelychloe/solely-bucket
-Write-Host "Bucket added." -ForegroundColor black -BackgroundColor Yellow
+Write-Host "@solelychloe's bucket added." -ForegroundColor black -BackgroundColor Yellow
 
 Write-Host "--- Installing chat apps... --- (1/9)" -ForegroundColor white -BackgroundColor darkcyan
 scoop install discord telegram
