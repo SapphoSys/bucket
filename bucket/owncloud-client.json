@@ -16,7 +16,7 @@
     }
   },
   "post_install": [
-    "'install-integration', 'uninstall-integration', | ForEach-Object {",
+    "'install-integration', 'uninstall-integration' | ForEach-Object {",
     "  if (Test-Path \"$bucketsdir\\extras\\scripts\\vscode\\$_.reg\") {",
     "    $content = Get-Content \"$bucketsdir\\extras\\scripts\\vscode\\$_.reg\"",
     "    if ($global) {",
