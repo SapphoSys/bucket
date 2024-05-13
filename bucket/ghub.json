@@ -12,22 +12,6 @@
     "if (!(is_admin)) { error \"$app requires admin rights to $cmd\"; break }",
     "Start-Process \"$dir\\$fname\" -Wait -Verb 'RunAs' -Args '--silent'; Remove-Item \"$dir\\$fname\""
   ],
-  "installer": {
-    "script": [
-      "$programname = \"Logitech G HUB*\"",
-      "$ProgramFiles = [Environment]::GetFolderPath(\"ProgramFiles\")",
-      "$filepath = \"$ProgramFiles\\LGHUB\\lghub.exe\"",
-      "if(((Test-Path -Path $filepath -PathType Leaf) -eq $false) -or ((Get-Command $filepath).Version -lt [System.Version]\"$version\"))",
-      "{",
-      "   &\"$dir\\lghub_installer.exe\" /quiet | Out-Null",
-      "   if(((Test-Path -Path $filepath -PathType Leaf) -eq $false) -or ((Get-Command $filepath).Version -lt [System.Version]\"$version\"))",
-      "   {",
-      "       exit 1",
-      "   }",
-      "}",
-      "if (Test-Path -Path \"$dir\\lghub_installer.exe\") { Remove-Item \"$dir\\lghub_installer.exe\" -Force }"
-    ]
-  },
   "post_install": [
     "$programname = \"programname\"",
     "$CommonDesktopPath = [Environment]::GetFolderPath(\"CommonDesktopDirectory\")",
