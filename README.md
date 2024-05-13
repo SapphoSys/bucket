@@ -1,4 +1,4 @@
-# Sapphic Angels' Scoop Bucket
+# Sapphic Angels' Scoop bucket
 
 [![Tests](https://github.com/SapphicMoe/bucket/actions/workflows/ci.yml/badge.svg)](https://github.com/SapphicMoe/bucket/actions/workflows/ci.yml) [![Excavator](https://github.com/SapphicMoe/bucket/actions/workflows/excavator.yml/badge.svg)](https://github.com/SapphicMoe/bucket/actions/workflows/excavator.yml)
 
