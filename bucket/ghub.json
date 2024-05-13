@@ -20,7 +20,7 @@
     "}"
   ],
   "installer": {
-    "script": "Start-Process \"$dir\\lghub_installer.exe\" -ArgumentList @('/quiet', '/analytics No', '/flow Yes', '/sso Yes', '/update No') -Wait -NoNewWindow",
+    "script": "Start-Process \"$dir\\lghub_installer.exe\" -Wait -Verb 'RunAs' -Args '--silent'; Remove-Item \"$dir\\$fname\"",
     "keep": true
   },
   "post_install": [
@@ -46,7 +46,6 @@
     "url": "https://support.logi.com/hc/en-us/articles/360048967733-G-HUB-Update-Release-Notes",
     "regex": "Version ([\\d.]+)"
   },
-  "bin": "lghub_installer.exe",
   "autoupdate": {
     "url": "https://download01.logi.com/web/ftp/pub/techsupport/gaming/lghub_installer.exe"
   }
