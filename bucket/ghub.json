@@ -10,7 +10,7 @@
   "hash": "e13d766bcf9fde512ac9fe904ba4ab1b1f39303f7c8bb76028c7fb5a0c99e638",
   "pre_install": [
     "if (!(is_admin)) { error \"$app requires admin rights to $cmd\"; break }",
-    "Start-Process \"$dir\\$fname\" -Wait -Verb 'RunAs' -Args '/s'; Remove-Item \"$dir\\$fname\""
+    "Start-Process \"$dir\\$fname\" -Wait -Verb 'RunAs' -Args '--silent'; Remove-Item \"$dir\\$fname\""
   ],
   "installer": {
     "script": [
