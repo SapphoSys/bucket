@@ -8,7 +8,6 @@
   },
   "url": "https://download01.logi.com/web/ftp/pub/techsupport/gaming/lghub_installer.exe",
   "hash": "e13d766bcf9fde512ac9fe904ba4ab1b1f39303f7c8bb76028c7fb5a0c99e638",
-  "pre_download": "Assert-Administrator",
   "pre_install": [
     "if (!(is_admin)) { error \"$app requires admin rights to $cmd\"; break }",
     "Start-Process \"$dir\\$fname\" -Wait -Verb 'RunAs' -Args '/s'; Remove-Item \"$dir\\$fname\""
